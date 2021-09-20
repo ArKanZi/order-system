@@ -1,0 +1,28 @@
+ul#accordionSidebar.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordion
+  // Sidebar - Brand
+  a.sidebar-brand.d-flex.align-items-center.justify-content-center(href='/')
+    .sidebar-brand-icon.rotate-n-15
+      i.fas.fa-laugh-wink
+    .sidebar-brand-text.mx-3
+      | Order System
+  // Divider
+  hr.sidebar-divider.my-0
+  // Nav Item - Dashboard
+  li.nav-item.active
+    a.nav-link(href='/')
+      i.fas.fa-fw.fa-tachometer-alt
+      span Dashboard
+  // Divider
+  hr.sidebar-divider
+  // Heading
+
+  // Nav Item Catalogue
+  li.nav-item
+    a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapseTwo' aria-expanded='true' aria-controls='collapseTwo')
+      i.fas.fa-book
+      span Catalogue
+    #collapseTwo.collapse(aria-labelledby='headingTwo' data-parent='#accordionSidebar')
+      .bg-white.py-2.collapse-inner.rounded
+        
+        a.collapse-item(href='/category') Categories
+        a.collapse-item(href='/product') Products

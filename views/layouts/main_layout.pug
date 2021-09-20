@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title Order System - #{title}
+        link(rel='stylesheet', href='/static/vendor/fontawesome-free/css/all.min.css')
+        link(rel='stylesheet', href='/static/vendor/datatables/dataTables.bootstrap4.min.css')
+        link(rel='stylesheet', href='/static/css/sb-admin-2.min.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')
+        block styles
+    body
+        #wrapper
+            //Sidebar
+            include components/sidebar.pug
+            #content-wrapper.d-flex.flex-column 
+                #content 
+                    // Navbar
+                    include components/header.pug
+                    .container-fluid
+                        block content
+        script(src="/static/vendor/jquery/jquery.min.js")
+        script(src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js")
+        script(src="/static/vendor/jquery-easing/jquery.easing.min.js")
+        script(src="/static/vendor/datatables/jquery.dataTables.min.js")
+        script(src="/static/js/sb-admin-2.min.js")
+        block scripts

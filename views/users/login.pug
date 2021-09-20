@@ -1,0 +1,36 @@
+extends ../layouts/auth_layout.pug
+
+block content
+    .row.justify-content-center
+      .col-xl-5.col-lg-12.col-md-9
+        .card.o-hidden.border-0.shadow-lg.my-5
+          .card-body.p-0
+            // Nested Row within Card Body
+            .row
+              .col-lg-12
+                .p-5
+                  .text-center
+                    h1.h4.text-gray-900.mb-4 Welcome Back!
+                    
+                    include ../layouts/components/flash.pug
+                    
+                  form.user(method="POST", action='/user_login')
+                    .form-group.form-floating.mb-3
+                      input#InputEmail.form-control.form-control-user(type='email' aria-describedby='emailHelp' placeholder='Enter Email Address...' name='email')
+                      label(for="InputEmail") Email ID
+                    .form-group.form-floating.mb-3
+                      input#InputPassword.form-control.form-control-user(type='password' placeholder='Password' name='password')
+                      label(for='InputPassword') Password
+                    .form-group
+                      .custom-control.custom-checkbox.small
+                        input#customCheck.custom-control-input(type='checkbox')
+                        label.custom-control-label(for='customCheck')
+                          | Remember
+                          | Me
+                    button.btn.btn-primary.btn-user.btn-block(type='submit')
+                      | Login
+                    hr
+                  .text-center
+                    a.small(href='/forget-password') Forgot Password?
+                  .text-center
+                    a.small(href='/register') Create an Account!

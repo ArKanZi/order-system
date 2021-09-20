@@ -1,0 +1,32 @@
+extends ../layouts/main_layout.pug
+
+block content
+    .row
+      .col-lg-4
+        .card.shadow-sm
+          .card-header Edit Category
+          .card-body
+            form(method="POST", action="/edit-category", enctype="multipart/form-data")
+              .form-group
+                label(for="categoryName") Category Name
+                input.form-control(name="categoryName", type="text", placeholder="Category Name" value=category.CategoryName)
+              .form-group
+                label(for="categoryBanner") Category Banner
+                input.form-control(name="categoryBanner", type="file", placeholder="Category Banner")
+              .form-group
+                label(for="categoryDescription") Category Description
+                input.form-control(name="categoryDescription", type="text", placeholder="Category Description")
+              .form-group
+                label(for="categoryStatus") Category Status
+                select.form-control(name="isActive" value=category.IsActive)
+                    option(value="0") Inactive
+                    option(value="1") Active
+                    //- if category.IsActive == 0
+                    //-     option(value="0" selected) Inactive
+                    //-     option(value="1") Active
+                    //- else
+                    //-     option(value="0") Inactive
+                    //-     option(value="1" selected) Active
+
+              button.btn.btn-primary.btn-sm Update
+              button(type="reset").btn.btn-secondary.btn-sm.ml-2 Reset

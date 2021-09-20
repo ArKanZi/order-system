@@ -1,0 +1,32 @@
+extends ../layouts/main_layout.pug
+
+block content
+    .row
+      .col-lg-4
+        .card.shadow-sm
+          .card-header Create Product
+          .card-body
+            //=JSON.stringify(product)
+            form(method="POST", action="/create-Product", enctype="multipart/form-data")
+              .form-group
+                input.form-control(name="ProductName", type="text", placeholder="Product Name")
+              .form-group
+                label(for="ProductBanner") Product Banner
+                input.form-control(name="ProductBanner", type="file", placeholder="Product Banner")
+                .form-group
+                input.form-control(name="ProductDescription", type="text", placeholder="Product Description")
+              .form-group
+                input.form-control(name="ProductPrice", type="text", placeholder="Product price")
+                .form-group
+                input.form-control(name="ProductQuantity", type="text", placeholder="Product Quantity")
+              .form-group
+                select.form-control(name="ProductCategory")
+                  each rows in productCategory
+                    option(value=rows.CategoryId) #{rows.CategoryName}
+                      
+              .form-group
+                select.form-control(name="IsActive")
+                  option(value="0") Inactive
+                  option(value="1") Active
+              button.btn.btn-primary.btn-sm Create
+              button.btn.btn-secondary.btn-sm.ml-2 Cancel

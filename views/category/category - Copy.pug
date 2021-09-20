@@ -1,0 +1,53 @@
+extends ../layouts/main_layout.pug
+
+block content
+    .row
+      .col-lg-4
+        .card.shadow-sm
+          .card-header Create Category
+          .card-body
+            form(method="POST", action="/create-category", enctype="multipart/form-data")
+              .form-group
+                label(for="categoryName") Category Name
+                input.form-control(name="categoryName", type="text", placeholder="Category Name")
+              .form-group
+                label(for="categoryBanner") Category Banner
+                input.form-control(name="categoryBanner", type="file", placeholder="Category Banner")
+              .form-group
+                label(for="categoryDescription") Category Description
+                input.form-control(name="categoryDescription", type="text", placeholder="Category Description")
+              .form-group
+                label(for="categoryStatus") Category Status
+                select.form-control(name="isActive")
+                  option(value="0") Inactive
+                  option(value="1") Active
+
+              button.btn.btn-primary.btn-sm Create
+              button(type="reset").btn.btn-secondary.btn-sm.ml-2 Reset
+
+      .col-lg-8
+        .card.shadow-sm   
+          .card-header List
+          .card-body Category List
+            table.table
+              thead
+                tr
+                  th(scope="col") #
+                  th(scope="col") Category Name
+                  th(scope="col") Status
+                  th(scope="col") Action
+              tbody 
+                each row, index in category 
+                  tr 
+                    th(scope="row") #{index+1}
+                    td #{row.CategoryName}
+                    td 
+                      if row.IsActive == 1
+                        span.badge.badge-success Active
+                      else 
+                        span.badge.badge-danger Inactive
+                    td 
+                      a(href="#")  View
+                      a.ml-2(href=`/edit-category/${row.CategoryId}`)  Edit
+
+
